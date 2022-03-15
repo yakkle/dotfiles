@@ -1,0 +1,51 @@
+# aliases
+if [ -f ~/.bash_aliases ]; then
+	. ~/.bash_aliases
+fi
+ 
+# git completion and prompt
+export GIT_PREFIX=/Library/Developer/CommandLineTools/usr/share/git-core
+if [ -f $GIT_PREFIX/git-completion.bash ]; then
+	. $GIT_PREFIX/git-completion.bash
+fi
+ 
+if [ -f $GIT_PREFIX/git-prompt.sh ]; then
+	. $GIT_PREFIX/git-prompt.sh
+ 
+	export PS1='\h:\W \u\[\e[1;34m\]$(__git_ps1)\[\e[0m\] \$ '
+ 
+	# for git PROMPT
+	GIT_PS1_STATESEPARATOR=""
+	GIT_PS1_SHOWDIRTYSTATE=1
+fi
+
+# bash-completion
+BREW_PREFIX=`brew --prefix`
+if [ -f $BREW_PREFIX/etc/bash_completion ]; then
+	. $BREW_PREFIX/etc/bash_completion
+fi
+
+export PATH=$PATH:$BREW_PREFIX/sbin:$HOME/bin
+ 
+set -o vi
+
+if [ -f $HOME/.pyenvrc ]; then
+	. ~/.pyenvrc
+fi
+
+if [ -f $HOME/.venvwrapper ]; then
+	. ~/.venvwrapper
+fi
+
+#if [ -f $HOME/.direnv ]; then
+#    . ~/.direnv
+#fi
+
+if [ -f $HOME/.jenvrc ]; then
+	. ~/.jenvrc
+fi
+
+if [ -f $HOME/.gorc ]; then
+	. ~/.gorc
+fi
+

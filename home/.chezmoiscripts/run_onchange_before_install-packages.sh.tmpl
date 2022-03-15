@@ -1,0 +1,76 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/bin/bash
+
+set -eufo pipefail
+
+{{ $brews := list
+     "act"
+     "automake"
+     "awscli"
+     "bash-completion"
+     "bat"
+     "black"
+     "boost"
+     "glib"
+     "pkg-config"
+     "coreutils"
+     "go"
+     "dep"
+     "openssl@3"
+     "figlet"
+     "gcc@4.9"
+     "gh"
+     "gnu-time"
+     "libtool"
+     "guile"
+     "unbound"
+     "gnutls"
+     "gobject-introspection"
+     "gradle"
+     "harfbuzz"
+     "pango"
+     "graphviz"
+     "grc"
+     "groovy"
+     "htop"
+     "httpie"
+     "iproute2mac"
+     "jenv"
+     "jq"
+     "leveldb"
+     "libssh2"
+     "libxml2"
+     "nghttp2"
+     "libxmlsec1"
+     "mas"
+     "node"
+     "oath-toolkit"
+     "pstree"
+     "pyenv"
+     "rocksdb"
+     "ruby"
+     "squashfs"
+     "tmux"
+     "tree"
+     "wget"
+     "tmux"
+     "wget" -}}
+{{ $casks := list
+     "java"
+     "java8"
+     "temurin11"
+     "visual-studio-code" -}}
+
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range ($brews | sortAlpha | uniq) -}}
+brew "{{ . }}"
+{{ end -}}
+{{ range ($casks | sortAlpha | uniq) -}}
+cask "{{ . }}"
+{{ end -}}
+mas "Slack", id: 803453959
+mas "Spark", id: 1176895641
+EOF
+{{ end -}}
+

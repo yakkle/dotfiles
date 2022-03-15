@@ -1,0 +1,7 @@
+alias ll='ls -al'
+alias l.='ls -a'
+alias p='cd ..'
+alias h='history'
+alias ff='find . -type f -name'
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'

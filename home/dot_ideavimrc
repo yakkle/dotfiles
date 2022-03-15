@@ -1,0 +1,5 @@
+set showmode
+set incsearch
+set ideavimsupport+=singleline
+
+# inoremap jj <Esc>

@@ -18,7 +18,6 @@ set -eufo pipefail
      "dep"
      "openssl@3"
      "figlet"
-     "gcc@4.9"
      "gh"
      "gnu-time"
      "libtool"
@@ -56,11 +55,13 @@ set -eufo pipefail
      "tmux"
      "wget" -}}
 {{ $casks := list
-     "java"
-     "java8"
-     "temurin11"
+     "temurin"
      "visual-studio-code" -}}
 
+{{ if eq .chezmoi.arch "amd64" -}}
+{{   $brews = concat $brews (list
+       "gcc") -}}
+{{ end -}}
 
 brew bundle --no-lock --file=/dev/stdin <<EOF
 {{ range ($brews | sortAlpha | uniq) -}}

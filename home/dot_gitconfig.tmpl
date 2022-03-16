@@ -1,0 +1,24 @@
+[user]
+	name = Seungmin.Ryu
+	email = yakkle@gmail.com
+[log]
+        decorate = full
+[color]
+        ui = true
+[fetch]
+	prune = true
+[alias]
+        lg = log --oneline --graph
+        tree = log --decorate=full --graph --oneline --all
+        tagprune = fetch origin --prune +refs/tags/*:refs/tags/*
+[core]
+	excludesfile = {{- .chezmoi.homeDir -}}/.gitignore_global
+[commit]
+	template = {{- .chezmoi.homeDir -}}/.stCommitMsg
+[merge]
+	conflictstyle = diff3
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

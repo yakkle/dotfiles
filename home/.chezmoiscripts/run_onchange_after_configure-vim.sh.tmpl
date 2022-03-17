@@ -1,0 +1,16 @@
+{{ if (eq .chezmoi.os "darwin" "linux") -}}
+
+#!/bin/bash
+
+set -eufo pipefail
+
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+# solarized
+git clone https://github.com/altercation/vim-colors-solarized ~/.vim/bundle/vim-colors-solarized
+
+# log highlighting
+git clone https://github.com/mtdl9/vim-log-highlighting ~/.vim/bundle/vim-log-highlighting
+
+{{ end -}}

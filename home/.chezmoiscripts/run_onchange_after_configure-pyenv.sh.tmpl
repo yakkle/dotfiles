@@ -6,9 +6,13 @@ set -eufo pipefail
 
 source ~/.pyenvrc
 
-pyenv install 3.9.10
-pyenv global 3.9.10
+PYVER={{ .python_ver }}
 
-pip install virtualenvwrapper
+if [[ "$(pyenv global)" != "$PYVER" ]]; then
+    pyenv install $PYVER
+    pyenv global $PYVER
+
+    pip install virtualenvwrapper
+fi
 
 {{ end -}}

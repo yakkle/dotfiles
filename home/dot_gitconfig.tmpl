@@ -13,8 +13,6 @@
         tagprune = fetch origin --prune +refs/tags/*:refs/tags/*
 [core]
 	excludesfile = {{- .chezmoi.homeDir -}}/.gitignore_global
-[commit]
-	template = {{- .chezmoi.homeDir -}}/.stCommitMsg
 [merge]
 	conflictstyle = diff3
 [filter "lfs"]

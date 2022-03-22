@@ -56,7 +56,9 @@ set -eufo pipefail
      "wget" -}}
 {{ $casks := list
      "temurin"
-     "visual-studio-code" -}}
+     "docker"
+     "visual-studio-code"
+     "jetbrains-toolbox" -}}
 
 {{ if eq .chezmoi.arch "amd64" -}}
 {{   $brews = concat $brews (list

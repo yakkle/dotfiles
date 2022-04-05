@@ -12,6 +12,7 @@
         tree = log --decorate=full --graph --oneline --all
         tagprune = fetch origin --prune +refs/tags/*:refs/tags/*
 [core]
+	editor = vim
 	excludesfile = {{- .chezmoi.homeDir -}}/.gitignore_global
 [merge]
 	conflictstyle = diff3

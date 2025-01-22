@@ -1,2 +1,10 @@
 *~
 .DS_Store
+
+# direnv
+.direnv/
+.envrc
+
+# asdf-vm
+.tool-versions
+

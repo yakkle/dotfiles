@@ -3,3 +3,5 @@ set incsearch
 set ideavimsupport+=singleline
 
 # inoremap jj <Esc>
+set ideajoin
+

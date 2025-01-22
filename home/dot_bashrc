@@ -31,25 +31,20 @@ fi
 
 export PATH=$PATH:$BREW_PREFIX/sbin:$HOME/bin
  
+export CDPATH=.:$HOME/projects
+
 set -o vi
 
-if [ -f $HOME/.pyenvrc ]; then
-	. ~/.pyenvrc
+if [ $(arch) == "arm64" ]; then
+    # to build c/c++ sources with dependent headers & libraries
+    export CPATH=$BREW_PREFIX/include
+    export LIBRARY_PATH=$BREW_PREFIX/lib
 fi
 
-if [ -f $HOME/.venvwrapper ]; then
-	. ~/.venvwrapper
-fi
-
-#if [ -f $HOME/.direnv ]; then
-#    . ~/.direnv
-#fi
-
-if [ -f $HOME/.jenvrc ]; then
-	. ~/.jenvrc
-fi
-
-if [ -f $HOME/.gorc ]; then
-	. ~/.gorc
-fi
+RC_FILES=( ~/.{mise,jenv,go,pipx,mojo,starship}rc )
+for rc_file in ${RC_FILES[@]}; do
+    if [ -f ${rc_file} ]; then
+        . ${rc_file}
+    fi
+done
 

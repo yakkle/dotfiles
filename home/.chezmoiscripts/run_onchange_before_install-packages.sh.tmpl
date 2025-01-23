@@ -36,7 +36,6 @@ set -eufo pipefail
      "iproute2mac"
      "jenv"
      "jq"
-     "leveldb"
      "libssh2"
      "libxml2"
      "nghttp2"
@@ -45,8 +44,6 @@ set -eufo pipefail
      "node"
      "oath-toolkit"
      "pstree"
-     "pyenv"
-     "rocksdb"
      "ruby"
      "squashfs"
      "tmux"
@@ -75,5 +72,7 @@ cask "{{ . }}"
 mas "Slack", id: 803453959
 mas "Spark", id: 1176895641
 EOF
+
+curl https://mise.run | sh
 {{ end -}}
 

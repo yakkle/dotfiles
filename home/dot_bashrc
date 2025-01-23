@@ -41,7 +41,7 @@ if [ $(arch) == "arm64" ]; then
     export LIBRARY_PATH=$BREW_PREFIX/lib
 fi
 
-RC_FILES=( ~/.{mise,jenv,go,pipx,mojo,starship}rc )
+RC_FILES=( ~/.{mise,jenv,go,pipx,starship}rc )
 for rc_file in ${RC_FILES[@]}; do
     if [ -f ${rc_file} ]; then
         . ${rc_file}

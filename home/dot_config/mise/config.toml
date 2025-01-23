@@ -1,0 +1,9 @@
+[settings]
+experimental = true
+python_venv_auto_create = true
+python_compile = true
+
+[tools]
+usage = "latest"
+pipx = "latest"
+

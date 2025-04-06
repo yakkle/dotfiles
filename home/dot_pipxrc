@@ -1,4 +1,0 @@
-# Created by `pipx` on 2022-12-12 05:48:41
-export PATH="$PATH:$HOME/.local/bin"
-
-eval "$(register-python-argcomplete pipx)"

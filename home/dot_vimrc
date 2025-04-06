@@ -1,4 +1,9 @@
-execute pathogen#infect()
+call plug#begin()
+
+Plug 'ericbn/vim-solarized'
+Plug 'mtdl9/vim-log-highlighting'
+
+call plug#end()
 
 autocmd BufRead,BufNewFile *.{h,c,cpp} set cindent sw=4 sts=4 cino=:0,t0 ts=4 expandtab
 autocmd BufRead,BufNewFile Makefile set sw=4 sts=4 cino=:0,t0 ts=4 noet
@@ -13,6 +18,7 @@ set re=0
 set background=dark
 "let g:solarized_termcolors = 256
 "let g:solarized_termtrans = 1
+"set termguicolors
 colorscheme solarized
 
 set incsearch

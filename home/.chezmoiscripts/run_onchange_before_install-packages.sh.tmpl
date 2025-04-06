@@ -9,7 +9,6 @@ set -eufo pipefail
      "awscli"
      "bash-completion"
      "bat"
-     "black"
      "boost"
      "glib"
      "pkg-config"
@@ -29,11 +28,9 @@ set -eufo pipefail
      "pango"
      "graphviz"
      "grc"
-     "groovy"
      "htop"
      "httpie"
      "iproute2mac"
-     "jenv"
      "jq"
      "libssh2"
      "libxml2"
@@ -48,15 +45,12 @@ set -eufo pipefail
      "starship"
      "tmux"
      "tree"
-     "wget"
      "tmux"
      "wget" -}}
 {{ $casks := list
-     "temurin"
      "docker"
      "visual-studio-code"
-     "font-meslo-lg-nerd-font"
-     "jetbrains-toolbox" -}}
+     "font-meslo-lg-nerd-font" -}}
 
 {{ if eq .chezmoi.arch "amd64" -}}
 {{   $brews = concat $brews (list

@@ -1,0 +1,8 @@
+{{ $python_version := promptString "default python version" -}}
+{{ $ssh_keyfile := promptString "ssh keyfile name (ex. id_ed25519.pub)" -}}
+
+[data]
+    python_ver = "{{ $python_version }}"
+
+    [data.ssh]
+    public_keyfile = "{{ $ssh_keyfile }}"

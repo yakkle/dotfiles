@@ -1,6 +1,7 @@
 [user]
 	name = Seungmin.Ryu
 	email = yakkle@gmail.com
+	signingkey = {{ .chezmoi.homeDir -}}/.ssh/{{- .ssh.public_keyfile }}
 [log]
         decorate = full
 [color]
@@ -13,7 +14,7 @@
         tagprune = fetch origin --prune +refs/tags/*:refs/tags/*
 [core]
 	editor = vim
-	excludesfile = {{- .chezmoi.homeDir -}}/.gitignore_global
+	excludesfile = {{ .chezmoi.homeDir -}}/.gitignore_global
 [merge]
 	conflictstyle = diff3
 [filter "lfs"]
@@ -21,3 +22,9 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
+[tag]
+	gpgSign = true

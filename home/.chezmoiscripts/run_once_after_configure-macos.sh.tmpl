@@ -1,0 +1,10 @@
+{{ if (eq .chezmoi.os "darwin") -}}
+
+#!/bin/bash
+
+set -eufo pipefail
+
+# enable global key-repeat
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+{{ end -}}
